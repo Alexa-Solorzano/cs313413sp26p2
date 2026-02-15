@@ -119,7 +119,7 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // FIXING: TODO using containsAll and List.of (see above),
+    // FIXED: TODO using containsAll and List.of (see above),
     // 1) assert that list contains all five different numbers added
     // 2) assert that list does not contain all of 11, 22, and 33
     //fail("Not yet implemented"); // remove this line when done
@@ -169,7 +169,7 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
-    // FIXING: TODO in a single statement using retainAll and List.of,
+    // FIXED: TODO in a single statement using retainAll and List.of,
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
     list.retainAll(List.of(77));
