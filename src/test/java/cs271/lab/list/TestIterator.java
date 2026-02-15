@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +20,8 @@ public class TestIterator {
 
   @Before // Every test starts with an empty list
   public void setUp() throws Exception {
-    list = new ArrayList<Integer>();
+    //list = new ArrayList<Integer>();
+    list = new LinkedList<Integer>();
     // TODO Question: Also try with a LinkedList - does it make any difference?
   }
 
@@ -72,6 +74,7 @@ public class TestIterator {
     list.add(77);
     list.add(66);
     final var i = list.iterator();
+    // while loop removes all elements with the value of 77, effectively removing 3 elements (at indexes 1, 3, 5)
     while (i.hasNext()) {
       if (i.next() == 77) {
         i.remove(); // TODO Question: What happens if you use list.remove(Integer.valueOf(77))?
@@ -80,7 +83,8 @@ public class TestIterator {
     // TODO using assertEquals and List.of, express which values are left in the list
     // See TestList.java for examples of how to use List.of; also see the Java List
     // interface for more information
-    fail("Not yet implemented"); // remove this line when done
+    //fail("Not yet implemented"); // remove this line when done
+    assertEquals(List.of(33,44,55,66), list); // Able to compare our expected list (without any 77) to the actual list to confirm changes
   }
 
   @Test
@@ -97,6 +101,12 @@ public class TestIterator {
     // TODO use an iterator and a while loop to compute the average (mean) of the values
     // (defined as the sum of the items divided by the number of items)
     // testNonempty shows how to use an iterator; use i.hasNext() in the while loop condition
+    final var i = list.iterator();
+
+    while(i.hasNext()){
+      sum += i.next();
+      n++;
+    }
     assertEquals(61.3, sum / n, 0.1);
     assertEquals(7, n);
   }
